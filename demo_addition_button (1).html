@@ -1,0 +1,26 @@
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+    <h2>PyScript 1+1 デモ（ボタン付き）</h2>
+    <p>ボタンを押すと 1+1 の計算結果が表示されます。</p>
+
+    <!-- 出力先 -->
+    <p id="result">結果はまだ表示されていません。</p>
+
+    <!-- ボタン -->
+    <button py-click="calc()">計算する</button>
+
+    <!-- PyScript コード -->
+    <py-script>
+from pyscript import Element
+
+def calc():
+    result = 1 + 1
+    Element("result").write(f"1 + 1 = {result}")
+    </py-script>
+  </body>
+</html>
