@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ChatGPT プロンプト集</title>
+<meta name="keywords" content="ChatGPT, プロンプト, コピー">
+<meta name="description" content="便利なChatGPTプロンプトをクリックでコピーできるサイト">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: sans-serif; background: #f8f8f8; margin: 0; }
+#outer { width: 90%; max-width: 800px; margin: auto; background: #fff; padding: 20px; }
+header { background: #333; color: #fff; padding: 15px; }
+h1 { margin: 0; font-size: 1.5em; }
+.prompt-box { background: #eee; padding: 10px; margin: 10px 0; border-radius: 5px; position: relative; }
+.copy-btn { position: absolute; right: 10px; top: 10px; padding: 5px 10px; border: none; background: #007bff; color: #fff; cursor: pointer; border-radius: 4px; }
+.copy-btn:hover { background: #0056b3; }
+footer { text-align: center; margin-top: 20px; color: #666; }
+</style>
+</head>
+<body>
+<div id="outer">
+  <header>
+    <h1>ChatGPT Prompt Collection</h1>
+    <p>Click the button to copy prompts instantly!</p>
+  </header>
+
+  <main>
+    <h2>📘 Prompts</h2>
+
+    <div class="prompt-box">
+      <pre id="prompt1">Explain quantum mechanics in simple terms for a 10-year-old.</pre>
+      <button class="copy-btn" onclick="copyPrompt('prompt1')">Copy</button>
+    </div>
+
+    <div class="prompt-box">
+      <pre id="prompt2">Write a Python script that generates a sine wave plot using matplotlib.</pre>
+      <button class="copy-btn" onclick="copyPrompt('prompt2')">Copy</button>
+    </div>
+
+    <div class="prompt-box">
+      <pre id="prompt3">Translate the following text into natural English: 「私は昨日渋谷に行きました」</pre>
+      <button class="copy-btn" onclick="copyPrompt('prompt3')">Copy</button>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2025 ChatGPT Prompt Site
+  </footer>
+</div>
+
+<script>
+function copyPrompt(id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copied!");
+  });
+}
+</script>
+</body>
+</html>
