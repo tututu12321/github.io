@@ -1,26 +1,28 @@
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  </head>
-  <body>
-    <h2>PyScript 1+1 デモ（ボタン付き）</h2>
-    <p>ボタンを押すと 1+1 の計算結果が表示されます。</p>
+<head>
+  <meta charset="utf-8"/>
+  <title>英語翻訳プロンプト生成</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+  <h2>英語翻訳プロンプト生成ツール</h2>
+  <p>日本語を入力してください。ChatGPTに投げる用の翻訳プロンプトが生成されます。</p>
 
-    <!-- 出力先 -->
-    <p id="result">結果はまだ表示されていません。</p>
+  <textarea id="jptext" rows="4" cols="40" placeholder="ここに日本語を入力"></textarea><br>
+  <button py-click="make_prompt()">プロンプト生成</button>
 
-    <!-- ボタン -->
-    <button py-click="calc()">計算する</button>
+  <h3>生成されたプロンプト</h3>
+  <pre id="result">ここに出力されます</pre>
 
-    <!-- PyScript コード -->
-    <py-script>
+  <py-script>
 from pyscript import Element
 
-def calc():
-    result = 1 + 1
-    Element("result").write(f"1 + 1 = {result}")
-    </py-script>
-  </body>
+def make_prompt():
+    jptext = Element("jptext").value
+    prompt = f"Translate the following Japanese text into natural English:\n\nJapanese:\n「{jptext}」"
+    Element("result").write(prompt)
+  </py-script>
+</body>
 </html>
